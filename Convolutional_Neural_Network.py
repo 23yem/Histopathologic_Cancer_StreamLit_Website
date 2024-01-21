@@ -158,9 +158,9 @@ with col2:
 
             # Display the prediction
             if prediction_float >= 50:
-                st.markdown(f'#### Prediction: <span style="color: red; font-weight: bold;">The model predicts that this image contains cancer</span>, with a {prediction_float}% of cancer', unsafe_allow_html=True)
+                st.markdown(f'#### Prediction: <span style="color: red; font-weight: bold;">The model predicts that this image contains cancer</span>, with a {prediction_float}% chance of cancer', unsafe_allow_html=True)
             else:
-                st.markdown(f'#### Prediction: <span style="color: green; font-weight: bold;">The model predicts that this image does not contain cancer</span>, with a {prediction_float}% of cancer', unsafe_allow_html=True)
+                st.markdown(f'#### Prediction: <span style="color: green; font-weight: bold;">The model predicts that this image does not contain cancer</span>, with a {prediction_float}% chance of cancer', unsafe_allow_html=True)
         else:
             st.markdown("<h4 style='text-align: center; color: red;'>Please upload an image first.</h4>", unsafe_allow_html=True) # If there is no uploaded photo
 
