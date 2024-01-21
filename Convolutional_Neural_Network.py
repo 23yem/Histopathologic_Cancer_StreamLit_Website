@@ -105,7 +105,7 @@ with col2:
 
         # Create a download button for the selected image
         st.download_button(
-            label="Download TIFF image",
+            label="Download TIF image",
             data=img_bytes,
             file_name=img_file,
             mime="image/tiff"
