@@ -7,4 +7,4 @@ st.set_page_config(layout="wide")
 with open('index.html', 'r') as file:    
     html_content = file.read()
 
-components.html(html_content, width = None, height=2000)
+components.html(html_content, width = None, height=2700)
