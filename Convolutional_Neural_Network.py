@@ -1,8 +1,10 @@
+from PIL import Image
+import io
+
 import streamlit as st
 from streamlit.components import v1 as components
 import tensorflow as tf
-from PIL import Image
-import io
+from tensorflow.keras.models import load_model
 
 from data_preprocessing import data_preprocessing
 
@@ -41,7 +43,11 @@ st.markdown("""
 st.markdown("""
     <div style="text-align: center">
         <h1>Using my best Deployed and Saved Convolutional Neural Network</h1>
-        <h3>Press the "Random" Button, which will give you a random pathology scan image with potential cancer. Once you press the "Random" button, a "Download TIFF image" button will also appear, allowing you to download the image. Continue to press the "Random" button if you want to switch images. Once you find one you like, download it and then pass it into my model. /h3>
+        <h4>1. Press the "Random" Button, which will give you a random pathology scan image with potential cancer. </h4>
+        <h4>2. Once you press the "Random" button, a "Download TIFF image" button will also appear, allowing you to download the image.</h4>
+        <h4>3. Continue to press the "Random" button if you want to switch images.</h4>
+        <h4>4. Once you find one you like, download it using the "Download TIFF image" button and then upload via the "Browse files" button. It will  then display the image you uploaded.</h4>
+        <h4>5. Once you uploaded the .tif file, press the "Predict" button and then you will see if your photo contains cancer, using my deployed machine learning model.</h4>
     </div>
     """, unsafe_allow_html=True)
 
@@ -65,6 +71,16 @@ with col3:
 with col2:
 
     st.write("")
+
+      # Make the buttons bigger
+    st.markdown("""
+        <style>
+        .stButton>button {
+            font-size: 10px;
+            padding: 20px 40px;
+        }
+        </style>
+        """, unsafe_allow_html=True)
 
     # Button to select a random image
     if st.button('Random'):
@@ -96,9 +112,6 @@ with col2:
         )
 
 
-    # Load the saved model
-    model = tf.keras.models.load_model('model_12_saved.h5')
-
     # File uploader for the user to upload their image
     uploaded_file = st.file_uploader("Choose an image...", type=["tif", "tiff"])
 
@@ -117,20 +130,39 @@ with col2:
         # Display the uploaded image
         st.image(uploaded_img_bytes, caption='Your Uploaded Image', use_column_width=False)
 
-        # Button to make a prediction
-        if st.button('Predict'):
 
+
+
+    def predictions():
+        # Load the saved model
+        model = tf.keras.models.load_model(os.path.join("model2_saved.h5"))
+
+        preprocessed_img = data_preprocessing()
+
+        # Make a prediction
+        prediction = model.predict(preprocessed_img, steps = len(preprocessed_img))
+
+        return prediction
+
+
+
+    # Button to make a prediction
+    if st.button('Predict'):
+        # If an image is uploaded
+        if uploaded_file is not None:
             # Preprocess the uploaded image
-            preprocessed_img = data_preprocessing("uploaded_img.tif")
+            
+            prediction = predictions()
 
-            # Make a prediction
-            prediction = model.predict(preprocessed_img)
+            prediction_float = round(prediction[0][0] * 100, 2)  # change it to a percentage, rounded to the hundreth
 
             # Display the prediction
-            if prediction[0][0] == 1:
-                st.write("The model predicts that this image contains cancer.")
+            if prediction_float >= 50:
+                st.markdown(f'#### Prediction: <span style="color: red; font-weight: bold;">The model predicts that this image contains cancer</span>, with a {prediction_float}% of cancer', unsafe_allow_html=True)
             else:
-                st.write("The model predicts that this image does not contain cancer.")
+                st.markdown(f'#### Prediction: <span style="color: green; font-weight: bold;">Rhe model predicts that this image does not contain cancer</span>, with a {prediction_float}% of cancer', unsafe_allow_html=True)
+        else:
+            st.markdown("<h4 style='text-align: center; color: red;'>Please upload an image first.</h4>", unsafe_allow_html=True) # If there is no uploaded photo
 
     # def predict(pclass, sex, fare, age, sibsp, parch):
     #     # Convert inputs to model's expected format
