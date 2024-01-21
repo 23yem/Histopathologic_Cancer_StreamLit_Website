@@ -1,7 +1,7 @@
 # Histopathologic Cancer Detector Machine Learning Project
 
 ## Project Description
-Hi, I'm Michael and this project is a sophisticated machine learning application focused on histopathologic cancer detection (my second machine learning project). It leverages a Convolutional Neural Network (CNN) model to analyze pathology scans uploaded by users and predict the presence of cancerous cells. The application is developed using Streamlit and TensorFlow and is part of a Kaggle competition aimed at advancing cancer detection methods.
+Hi, I'm Michael and this is my Website for my sophisticated machine learning application focused on histopathologic cancer detection (my second machine learning project). In This website, I show how my project leverages a Convolutional Neural Network (CNN) model to analyze pathology scans uploaded by users and predict the presence of cancerous cells. The application is developed using Streamlit and TensorFlow and is part of a Kaggle competition aimed at advancing cancer detection methods.
 
 ## Key Features
 1. **Interactive Web Application**: Developed using Streamlit, this web application allows users to interact with the CNN model seamlessly.
