@@ -71,5 +71,3 @@ def data_preprocessing():
 
     return generator
 
-
-print(data_preprocessing())
