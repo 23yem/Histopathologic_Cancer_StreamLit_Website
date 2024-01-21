@@ -1,0 +1,7 @@
+tensorflow
+numpy
+pandas
+joblib
+scikit-learn
+PIL
+#os
