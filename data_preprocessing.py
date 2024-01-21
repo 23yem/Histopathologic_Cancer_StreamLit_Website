@@ -8,10 +8,6 @@ import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
 
 
 
-# Set Global random seed to make sure we can replicate any model that we create (no randomness)
-np.random.seed(42)
-random.seed(42)
-np.random.seed(42)
 tf.random.set_seed(42)
 
 
