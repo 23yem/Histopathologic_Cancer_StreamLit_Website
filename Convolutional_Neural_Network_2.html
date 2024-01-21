@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <style>
+        body {
+            font-size: 0.7rem; /* Base font size */
+            background-color: #fad2d2;
+            zoom: 1.5; /* Scale up by 50% */
+        }
+
+        p, h1, h2, figcaption, h3 {
+        color: #d80808;
+        }
+
+        .container {
+            max-width: 900px; /* Max-width for the container */
+            min-height: 5500px;
+            margin: auto; /* Center the container */
+            
+        }
+        figure img {
+            width: 100%; /* Full width of its container */
+            max-width: 450px; /* Max width of the image */
+            height: auto; /* Maintain aspect ratio */
+            display: block; /* Block display to respect max-width */
+            margin: 0 auto; /* Center the image */
+        }
+        h2 {
+            font-size: 1.2rem; /* Heading size */
+        }
+        h3 {
+            font-size: 1rem; /* Subheading size */
+        }
+        p {
+            font-size: 0.7rem; /* Paragraph text size */
+        }
+        /* Ensure the main content is visible */
+        main {
+            padding: 1rem 0; /* Add padding around main content */
+        }
+        nav ul {
+            padding: 0.5rem 0; /* Padding for nav */
+            list-style-type: none; /* Remove list bullets */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            display: flex; /* Add this line */
+            flex-wrap: nowrap; /* Add this line to prevent wrapping */
+        }
+        nav ul li {
+            display: inline; /* Display nav items in a line */
+            margin-right: 10px; /* Right margin for spacing */
+        }
+        nav ul li a {
+            color: #007bff; /* Set link color */
+            text-decoration: none; /* Remove text underline */
+            font-size: 0.6rem; /* Smaller font size for nav links */
+            padding: 5px 10px; /* Add padding to give a button-like appearance */
+            border-radius: 50px; /* Rounded corners */
+            transition: background-color 0.3s, color 0.3s; /* Transition for smooth color change */
+            background-color: #007bff; /* Set background color */
+            color: #fff; /* Set text color */
+        }
+
+        /* Change color on hover */
+        nav ul li a:hover {
+            background-color: #0056b3; /* Change background color on hover */
+            color: #fff; /* Keep text color the same on hover */
+            text-decoration: underline; /* Add underline on hover */
+        }
+
+
+        /* Responsive styles for mobile!*/
+        @media (max-width: 1000px) {
+
+            h1 {
+            font-size: 1.5rem;
+           
+            }
+
+            .container {
+            
+            margin: auto; /* Center the container */
+            overflow-y: auto; /* Add a scrollbar if necessary */
+          
+            }
+        }
+    </style>
+    <title>Titanic Survival Project</title>
+</head>
+<body>
+    
+    <main class="container">
+        
+        <body>
+            <h1 style="text-align: center;">Step by Step process for the Convolutional Neural Network Model</h1>
+
+            
+            <h2>Step 1: Introduction and Setup</h2>
+            <p>The journey begins with setting the stage for the Histopathologic Cancer Detection Neural Network project. Essential libraries like NumPy for linear algebra, pandas for data processing, and TensorFlow for neural network operations are imported. This step lays the groundwork for all subsequent data manipulations and model-building activities, ensuring a robust and versatile toolkit is at hand.</p>
+
+            <h2>Step 2: Library Version Check</h2>
+            <p>Ensuring consistency and compatibility, the script meticulously checks the versions of pivotal libraries such as TensorFlow, NumPy, pandas, and sklearn. This is a vital step for maintaining reproducibility of the results and ensuring that the project can be seamlessly shared and replicated within the data science community. It underscores the importance of building a stable and reliable analytical environment.</p>
+
+            <h2>Step 3: Setting Global Random Seed</h2>
+            <p>To ensure the reproducibility of results, a crucial aspect in machine learning projects, the script sets a global random seed for libraries like NumPy, random, and TensorFlow. This action stabilizes the randomness inherent in neural network training, making sure that every run of the model yields consistent results. Such precision is key in scientific experiments where replicability is paramount.</p>
+
+            <h2>Step 4: Image Recognition Pre-processing Practices</h2>
+            <p>The script delves into critical pre-processing practices for image recognition, an area where meticulous data preparation pays dividends. Techniques such as rescaling pixel values to a range of 0 to 1, resizing images for uniform input dimensions, and normalization are employed. These steps are essential for converting raw image data into a form that is more suitable and efficient for neural network processing, ensuring the model has the best chance of success.</p>
+
+                    
+            <h2>Step 5: Normalization</h2>
+            <p>The script emphasizes the significance of normalizing image data, a process involving subtracting the mean and dividing by the standard deviation. This technique is particularly crucial when employing pre-trained models, as it aligns the new data with the normalization statistics of the dataset used to train the original model. Such alignment ensures that the model's learning is not skewed by variations in the scale and distribution of the input data.</p>
+
+            <h2>Step 6: Data Augmentation</h2>
+            <p>In the realm of large-scale image datasets, data augmentation emerges as a key strategy to enhance the diversity and robustness of the training data. By applying random transformations like rotation, shifting, flipping, zooming, and shearing, the script effectively generates new training samples from existing ones. This process not only helps in preventing overfitting but also aids in developing a model that is resilient to variations in image presentation.</p>
+
+            <h2>Step 7: Color Space Conversions</h2>
+            <p>The script explores the concept of converting images to different color spaces, such as grayscale, HSV, or LAB. This approach is based on the premise that different color spaces can reveal different features and patterns in the images, which might be more informative for the neural network. Such conversions are a testament to the flexibility and experimentation inherent in the field of image processing and machine learning.</p>
+
+            <h2>Step 8: Image Denoising and Edge Detection</h2>
+            <p>To enhance the quality of the input data, the script incorporates image denoising techniques for reducing noise and improving clarity. Alongside, edge detection methods are employed to highlight important features and shapes within the images. These preprocessing steps are critical in preparing the images in a way that maximizes the neural network's ability to learn relevant and distinct features.</p>
+
+                    
+            <h2>Step 9: Masking, Cropping, and Histogram Equalization</h2>
+            <p>The script introduces advanced techniques like masking and cropping to focus on relevant areas of the images, and histogram equalization to enhance contrast. These steps are particularly beneficial in datasets with variable lighting conditions or where certain regions of the images are more informative than others. By fine-tuning the visual input, these techniques help in sharpening the model's focus and improving its diagnostic accuracy.</p>
+        
+            <h2>Step 10: Centering and Standardization</h2>
+            <p>Building upon normalization, the script also implements centering and standardization of the image data. This involves subtracting the mean image and reducing variance, further stabilizing the input data for the neural network. Such preprocessing not only aids in model convergence but also contributes to more consistent training and validation performance across various runs.</p>
+        
+            <h2>Step 11: Handling Class Imbalance</h2>
+            <p>Addressing a common challenge in machine learning, the script tackles class imbalance in the dataset. Techniques like class weighting, oversampling the minority class, and undersampling the majority class are employed to ensure a balanced representation of classes. This is a crucial step in preventing model bias and ensuring that the trained model performs well across all categories of data.</p>
+        
+            <h2>Step 12: Experimental Preprocessing</h2>
+            <p>The script concludes with a note on the experimental nature of preprocessing in machine learning. It highlights the importance of starting with simple methods and gradually incorporating more complex techniques based on specific model requirements and performance. This iterative approach embodies the essence of machine learning, where experimentation and adaptation are key to achieving optimal results.</p>
+        
+            <p>I have learned a great deal about image classification through this project, particularly in Convolutional Neural Networks, data augmentation, managing large datasets of over 270,000 images, and the intricacies of data cleaning and resizing.</p>
+      
+        </body>
+       
+        
+    </main>
+    <footer class="container">
+        <small><a href="index.html">Home</a> </small>
+    </footer>
+</body>
+</html>
